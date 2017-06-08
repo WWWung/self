@@ -1,0 +1,166 @@
+.wrap{
+  position: relative;
+  height: 100%;
+}
+body{
+  overflow: hidden;
+}
+#canvas{
+  background: #111;
+}
+.background, .content{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.content{
+  z-index: 1;
+  width: 100% ;
+  height: 100%;
+}
+.main-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 472px;
+  width: 800px;
+  background: url('../img/book.png') repeat-y center 0;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.page-bg{
+  width: 370px;
+  background: url('../img/bg.gif') repeat;
+}
+.page-wrap{
+  position: absolute;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  top: 6px;
+  left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-ring{
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ring-wrap{
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.ring-wrap span{
+  height: 20px;
+  background: url('../img/ring.png') no-repeat;
+  background-size: 100% 100%;
+}
+.pages{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 3000px;
+}
+.left-page{
+  position: absolute;
+  top: 9px;
+  height: 454px;
+  width: 9px;
+  left: 31px;
+  display: flex;
+}
+.book-shadow{
+  height: 100%;
+  width: 3px;
+  box-shadow: 0 0 5px 0 rgba(71,30,0,0.5);
+  background: #e8e4e2;
+}
+.right-page{
+  position: absolute;
+  top: 9px;
+  height: 454px;
+  width: 9px;
+  right: 29px;
+  display: flex;
+}
+.pager{
+  position: absolute;
+  left: 40px;
+  top: 9px;
+  width: 355px;
+  height: 454px;
+  transform-style: preserve-3d;
+  transform-origin: 360px 0;
+  box-shadow: 0 0 5px 0 rgba(71,30,0,0.1);
+}
+.positive, .negative{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 315px;
+  height: 100%;
+  padding: 0 20px;
+  backface-visibility: hidden;
+  background: url('../img/bookbg.png') repeat-y right 0;
+}
+.pager:nth-child(1){
+  z-index: 10;
+}
+.pager:nth-child(2){
+  z-index: 9;
+}
+.pager:nth-child(3){
+  z-index: 8;
+}
+.pager:nth-child(4){
+  z-index: 7;
+}
+.next-page .positive{
+  transform-origin: center 0;
+  transform: rotateY(180deg);
+}
+.page-head{
+  font: 20px/80px Arial,'Microsoft YaHei';
+  text-align: center;
+  border-bottom: 1px dotted #aeaeae;
+}
+.page-content li{
+  height: 36px;
+  border-bottom: 1px dotted #aeaeae;
+}
+.next-page{
+  transform: rotateY(180deg);
+  transition: all 1s linear;
+}
+.prev-page{
+  transform: rotateY(0deg);
+  transition: all 1s linear;
+}
+.main-menu{
+  position: fixed;
+  width: 100px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu-list li{
+  text-align: center;
+  font: 16px/30px Arial,'Microsoft YaHei';
+  color: #fff;
+  z-index: 100;
+  margin: 15px 0;
+}
